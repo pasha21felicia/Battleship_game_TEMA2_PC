@@ -1,0 +1,46 @@
+Digori Parascovia 313CC
+
+Interactiune cu aplicatia: In pagina menu: cu Key_UP si Key_DOWN
+In pagina de joc: cu tastele 'S' - down, 'W' - top, 'A' - left, 'D' - right
+Pentru a ajunge in menu: apasati tasta 'Q'
+Pentru a distruge in avans 10 pozitii: apasati tasta 'K'
+In timpul jocului este recomandat sa urmati indicatiile de joc - randul pentru mutare.
+De asemenea ar fi bine sa pastrati fereastra terminalului la cca. 120x35
+
+Task1:  Se initiaza fereastra de joc 'menu' care contine meniul principal al jocului.
+Aici, prin intermediul tastelor Key_UP si Key_DOWN putem selecta una dintre 
+optiunile 'New Game' - va crea un joc nou total, 'Resume' - reluarea vechiului joc
+si 'Quit' - pentru a parasi jocul. Confirmarea alegerii optiunii dorite se face 
+prim apasarea tastei ENTER. 
+
+Task2:  La selectarea tastei 'New Game' se initiaza ecranul de joc, in care apare
+tabelul jucatorului(citita din fisier in mod aleator) si tabelul calculatorului
+care este generat random prin intermediul functiei create_boards. Ideea amplasarii
+navelor calculatorului este urmatoarea: generez ROW/COL si o directie NORTH, SOUTH,
+EAST, WEST, apoi in dependenta de directie verific daca in acea directie exista
+destule celule pentru a plasa nava(functiile check_NORTH/SOUTH/WEST/EAST) daca 
+exista spatiu se apeleaza una din functiile place_NORTH/SOUTH/EAST/WEST. In aceste
+functii plasez 'x' in ROW/COL generat si de-a lungul directiei valide, iar in jurul
+navei(caracterelor 'x') la stanga, dreapta, sus, jos plasez '.'. Astfel cand fac 
+validarea pozitiilor pentru navele de 3,2,1 verific daca pozitiile alea nu sunt
+'.' sau 'x'. Apelare functia read(in care se genereaza un nr intre 0 si argc) si
+aleator se citeste unul dintre fisierele date ca argumente.
+
+Task3: Logica intregului joc se alfa in functia game() in care se afiseaza tabelul
+calculatorului(gol initial) si al jucatorului. Prin tastele SWAD puteti naviga prin
+tabelul calculatorului, '*' rosie indica pozitia curenta, apasand ENTER se 
+deblocheaza celula: 'o'- daca nava a fost ochita, '~' - daca e apa. Pentru a mentine
+ordinea de atac a jucatorilor se foloseste var. turn = 0 (randul calculatorului) 
+turn = 1(randul jucatorului); Daca a fost ochita o bucata de nava scorul 
+calculatorului/jucatorului creste. 
+
+Task 4: Am implementat doar optiunea Destroy in advance, care se poate activa apansand
+tasta 'k'. 
+
+Task 5: Prin apelarea functiei winner() verific daca jucatorul sau calculatorul 
+a acumulat 20 puncte(toate navele distruse) => se initiaza ecranul ce anunta 
+castigatorul, scorul si navele distruse. Numarul de nave distruse se verifica 
+cu functia check_jucator_ships() sau check_comp_ships(), in care destul de 
+hardcoded verific daca toate celule sunt 'o' in dependenta de marimea navei.
+
+Bonus: Placere vizuala, redata in culori si imagini.
